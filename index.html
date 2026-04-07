@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conectados: Cerrando la Brecha Digital — Jonatan Medina</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>Aprender Haciendo — Talleres de Alfabetización Digital · Jonatan Medina</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --verde: #1db954;
@@ -18,9 +18,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--negro);
@@ -28,7 +26,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAVBAR ── */
+  /* NAVBAR */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(10,10,10,0.92);
@@ -37,390 +35,256 @@
     padding: 1rem 2.5rem;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-logo {
-    font-family: 'Space Mono', monospace;
-    font-size: .8rem; color: var(--verde);
-    letter-spacing: .1em; text-transform: uppercase;
-  }
+  .nav-logo { font-family: 'Space Mono', monospace; font-size: .8rem; color: var(--verde); letter-spacing: .1em; text-transform: uppercase; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--gris-texto); text-decoration: none;
-    font-size: .85rem; letter-spacing: .05em;
-    transition: color .3s;
-  }
+  .nav-links a { color: var(--gris-texto); text-decoration: none; font-size: .85rem; letter-spacing: .05em; transition: color .3s; }
   .nav-links a:hover { color: var(--verde); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
     padding: 8rem 3rem 4rem;
     position: relative; overflow: hidden;
-    background: radial-gradient(ellipse at 70% 50%, rgba(29,185,84,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 10% 80%, rgba(57,255,20,0.04) 0%, transparent 50%),
+    background: radial-gradient(ellipse at 30% 60%, rgba(29,185,84,0.09) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 20%, rgba(57,255,20,0.04) 0%, transparent 45%),
                 var(--negro);
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
     background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(29,185,84,0.04) 60px),
-      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(29,185,84,0.04) 60px);
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(29,185,84,0.03) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(29,185,84,0.03) 60px);
     pointer-events: none;
   }
-  .hero-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: .72rem; color: var(--verde);
-    letter-spacing: .15em; text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: .75rem;
-  }
-  .hero-tag::before {
-    content: ''; display: block;
-    width: 40px; height: 1px; background: var(--verde);
+  .entry-badge {
+    display: inline-flex; align-items: center; gap: .8rem;
+    font-family: 'Space Mono', monospace; font-size: .7rem;
+    color: var(--negro); background: var(--verde);
+    padding: .4rem 1rem; letter-spacing: .12em;
+    text-transform: uppercase; margin-bottom: 2rem;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 900; line-height: 1.0;
-    max-width: 900px;
+    font-size: clamp(2.8rem, 7vw, 6.5rem);
+    font-weight: 900; line-height: 1.0; max-width: 820px;
   }
-  .hero h1 .highlight {
-    color: var(--verde);
-    position: relative; display: inline-block;
-  }
+  .hero h1 em { color: var(--verde); font-style: italic; }
   .hero-sub {
-    font-size: 1.1rem; color: var(--gris-texto);
-    margin-top: 1.8rem; max-width: 560px;
-    line-height: 1.7; font-weight: 300;
+    font-size: 1.05rem; color: var(--gris-texto);
+    margin-top: 1.8rem; max-width: 540px;
+    line-height: 1.75; font-weight: 300;
   }
   .hero-meta {
-    margin-top: 3rem;
-    display: flex; gap: 3rem; flex-wrap: wrap;
+    margin-top: 3rem; display: flex; gap: 2.5rem; flex-wrap: wrap;
+    padding-top: 2rem; border-top: 1px solid rgba(29,185,84,0.2);
   }
   .meta-item { display: flex; flex-direction: column; gap: .3rem; }
-  .meta-label {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--verde);
-    letter-spacing: .12em; text-transform: uppercase;
-  }
+  .meta-label { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--verde); letter-spacing: .12em; text-transform: uppercase; }
   .meta-value { font-size: .9rem; font-weight: 500; }
 
-  /* ── SCROLL INDICATOR ── */
+  /* SCROLL */
   .scroll-line {
-    position: absolute; bottom: 2.5rem; left: 3rem;
-    display: flex; align-items: center; gap: 1rem;
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--gris-texto);
-    letter-spacing: .1em;
+    position: absolute; bottom: 2.5rem; right: 3rem;
+    writing-mode: vertical-rl;
+    font-family: 'Space Mono', monospace; font-size: .62rem;
+    color: var(--gris-texto); letter-spacing: .12em;
+    display: flex; align-items: center; gap: .8rem;
   }
   .scroll-line::after {
-    content: ''; display: block;
-    width: 60px; height: 1px; background: var(--gris-texto);
+    content: ''; display: block; width: 1px; height: 50px;
+    background: var(--gris-texto);
     animation: scrollPulse 2s ease-in-out infinite;
   }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: .3; width: 30px; }
-    50% { opacity: 1; width: 60px; }
-  }
+  @keyframes scrollPulse { 0%,100%{ opacity:.3; height:25px; } 50%{ opacity:1; height:50px; } }
 
-  /* ── STAT BAR ── */
-  .stat-bar {
-    background: var(--gris-medio);
-    border-top: 1px solid rgba(29,185,84,0.15);
-    border-bottom: 1px solid rgba(29,185,84,0.15);
-    padding: 2rem 3rem;
-    display: flex; gap: 0; flex-wrap: wrap;
-  }
-  .stat-item {
-    flex: 1; min-width: 180px;
-    padding: 1rem 2rem;
-    border-right: 1px solid rgba(255,255,255,0.06);
-    text-align: center;
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; font-weight: 900;
-    color: var(--verde);
-  }
-  .stat-desc {
-    font-size: .8rem; color: var(--gris-texto);
-    margin-top: .4rem; line-height: 1.4;
-  }
-
-  /* ── SECTION BASE ── */
+  /* SECCIÓN BASE */
   section { padding: 6rem 3rem; }
-  .section-header {
-    display: flex; align-items: flex-start;
-    gap: 2rem; margin-bottom: 4rem;
+  .section-label {
+    font-family: 'Space Mono', monospace; font-size: .68rem;
+    color: var(--verde); letter-spacing: .18em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
   }
-  .entry-num {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem; color: var(--verde);
-    letter-spacing: .15em; writing-mode: vertical-rl;
-    text-transform: uppercase;
-    border-left: 1px solid var(--verde);
-    padding-left: .6rem;
-  }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--verde); }
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700; line-height: 1.15;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2; margin-bottom: 3rem;
   }
   .section-title span { color: var(--verde); }
 
-  /* ── ENTRADA 1 ── */
-  #entrada1 {
-    background: var(--negro);
-    border-top: 1px solid rgba(255,255,255,0.05);
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--gris-medio);
+    border-top: 1px solid rgba(29,185,84,0.15);
+    border-bottom: 1px solid rgba(29,185,84,0.15);
+    padding: 1.5rem 3rem;
+    display: flex; gap: 0; flex-wrap: wrap; overflow: hidden;
   }
-  .entry1-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: start;
+  .stat-strip-item {
+    flex: 1; min-width: 160px;
+    padding: .8rem 1.8rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.06);
   }
+  .stat-strip-item:last-child { border-right: none; }
+  .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--verde); }
+  .stat-d { font-size: .75rem; color: var(--gris-texto); margin-top: .3rem; line-height: 1.4; }
+
+  /* TALLER CARD */
+  #taller1, #taller2 { border-top: 1px solid rgba(255,255,255,0.05); }
+  #taller1 { background: var(--negro); }
+  #taller2 { background: linear-gradient(180deg, var(--negro) 0%, var(--gris-oscuro) 100%); }
+
+  .taller-grid {
+    display: grid; grid-template-columns: 1fr 1.3fr;
+    gap: 5rem; align-items: start; max-width: 1200px; margin: 0 auto;
+  }
+  .taller-grid.reverse { grid-template-columns: 1.3fr 1fr; }
+
   .prose { line-height: 1.85; color: rgba(245,245,240,0.82); font-weight: 300; }
   .prose p { margin-bottom: 1.4rem; }
   .prose strong { color: var(--blanco); font-weight: 600; }
+
+  /* PULL QUOTE */
   .pull-quote {
     border-left: 3px solid var(--verde);
     padding: 1.5rem 0 1.5rem 1.8rem;
     margin: 2.5rem 0;
     font-family: 'Playfair Display', serif;
-    font-size: 1.35rem; font-style: italic;
-    color: var(--blanco); line-height: 1.5;
+    font-size: 1.2rem; font-style: italic;
+    color: var(--blanco); line-height: 1.55;
   }
-  .info-card {
-    background: var(--gris-medio);
-    border: 1px solid rgba(29,185,84,0.2);
-    border-radius: 2px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  .info-card h4 {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem; color: var(--verde);
-    letter-spacing: .12em; text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .info-card p { font-size: .9rem; line-height: 1.7; color: var(--gris-texto); }
 
-  /* DIMENSIONES */
-  .dimensions {
+  /* TIMELINE */
+  .timeline { margin: 2.5rem 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+    width: 1px; background: rgba(29,185,84,0.25);
+  }
+  .tl-item {
+    display: flex; gap: 1.5rem; margin-bottom: 1.8rem;
+    padding-left: .5rem;
+  }
+  .tl-dot {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    background: var(--gris-medio); border: 2px solid var(--verde);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace; font-size: .6rem;
+    color: var(--verde); font-weight: 700; position: relative; z-index: 1;
+  }
+  .tl-content h4 {
+    font-size: .85rem; font-weight: 600; margin-bottom: .4rem; color: var(--blanco);
+  }
+  .tl-content p { font-size: .82rem; color: var(--gris-texto); line-height: 1.65; }
+
+  /* DETAIL CARDS */
+  .detail-card {
+    background: var(--gris-medio);
+    border: 1px solid rgba(29,185,84,0.18);
+    border-radius: 2px; padding: 2rem; margin-bottom: 1.4rem;
+  }
+  .detail-card h4 {
+    font-family: 'Space Mono', monospace; font-size: .65rem;
+    color: var(--verde); letter-spacing: .12em; text-transform: uppercase;
+    margin-bottom: .9rem;
+  }
+  .detail-card p { font-size: .88rem; color: var(--gris-texto); line-height: 1.7; }
+  .detail-card ul { list-style: none; padding: 0; }
+  .detail-card li {
+    font-size: .87rem; color: var(--gris-texto); line-height: 1.65;
+    padding: .4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: flex-start; gap: .8rem;
+  }
+  .detail-card li:last-child { border-bottom: none; }
+  .detail-card li::before { content: '→'; color: var(--verde); font-size: .75rem; flex-shrink: 0; margin-top: .15rem; }
+
+  /* INDICADORES */
+  .indicadores {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 1rem; margin-top: 2rem;
   }
-  .dim-card {
-    background: linear-gradient(135deg, rgba(29,185,84,0.07), transparent);
-    border: 1px solid rgba(29,185,84,0.15);
-    border-radius: 2px; padding: 1.5rem;
+  .ind-card {
+    background: linear-gradient(135deg, rgba(29,185,84,0.08), transparent);
+    border: 1px solid rgba(29,185,84,0.2); border-radius: 2px;
+    padding: 1.4rem; text-align: center;
   }
-  .dim-icon {
-    font-size: 1.6rem; margin-bottom: .7rem; display: block;
-  }
-  .dim-title {
-    font-family: 'Space Mono', monospace;
-    font-size: .68rem; color: var(--verde);
-    letter-spacing: .1em; text-transform: uppercase;
-    margin-bottom: .5rem;
-  }
-  .dim-text { font-size: .85rem; color: var(--gris-texto); line-height: 1.6; }
+  .ind-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--verde); }
+  .ind-d { font-size: .75rem; color: var(--gris-texto); margin-top: .4rem; line-height: 1.4; }
 
-  /* ── DIVIDER ── */
-  .divider {
-    display: flex; align-items: center;
-    gap: 1.5rem; padding: 0 3rem;
-    margin: 1rem 0;
-  }
-  .divider-line {
-    flex: 1; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(29,185,84,0.4), transparent);
-  }
-  .divider-text {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--verde);
-    letter-spacing: .2em; text-transform: uppercase;
-  }
-
-  /* ── ENTRADA 2 ── */
-  #entrada2 {
-    background: linear-gradient(180deg, var(--negro) 0%, var(--gris-oscuro) 100%);
-    border-top: 1px solid rgba(29,185,84,0.15);
-  }
-  .entry2-layout { max-width: 860px; margin: 0 auto; }
-
-  /* TERRITORY CARD */
-  .territory-card {
+  /* ODS */
+  .ods-section { max-width: 1100px; margin: 0 auto; }
+  .ods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .ods-card {
     background: var(--gris-medio);
-    border: 1px solid rgba(29,185,84,0.25);
-    border-radius: 2px;
-    padding: 2.5rem;
-    margin: 3rem 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  .territory-map {
-    background: rgba(29,185,84,0.05);
-    border: 1px dashed rgba(29,185,84,0.3);
-    border-radius: 2px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    min-height: 200px; gap: 1rem;
-    padding: 1.5rem;
-  }
-  .map-pin { font-size: 2.5rem; }
-  .map-text {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem; color: var(--verde);
-    text-align: center; line-height: 1.6;
-  }
-  .map-coords {
-    font-size: .65rem; color: var(--gris-texto);
-    font-family: 'Space Mono', monospace;
-  }
-  .territory-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; margin-bottom: 1rem;
-  }
-  .territory-info p {
-    font-size: .88rem; color: var(--gris-texto);
-    line-height: 1.7; margin-bottom: .8rem;
-  }
-  .tag-list { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
-  .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: .62rem; color: var(--negro);
-    background: var(--verde);
-    padding: .3rem .7rem; border-radius: 1px;
-    letter-spacing: .05em; text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  /* OBJETIVOS */
-  .objetivos-section { margin: 3.5rem 0; }
-  .objetivo-general {
-    background: linear-gradient(135deg, rgba(29,185,84,0.12), rgba(29,185,84,0.03));
-    border: 1px solid rgba(29,185,84,0.35);
     border-radius: 2px; padding: 2rem;
-    margin-bottom: 1.5rem;
+    position: relative; overflow: hidden;
   }
-  .obj-label {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--verde);
-    letter-spacing: .15em; text-transform: uppercase;
-    margin-bottom: .8rem;
+  .ods-card::before {
+    content: attr(data-ods);
+    position: absolute; top: -10px; right: -5px;
+    font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900;
+    color: rgba(29,185,84,0.06); line-height: 1; pointer-events: none;
   }
-  .obj-text { font-size: 1rem; line-height: 1.7; font-weight: 500; }
+  .ods-num {
+    font-family: 'Space Mono', monospace; font-size: .65rem;
+    color: var(--negro); background: var(--verde);
+    padding: .3rem .8rem; display: inline-block;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .ods-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: .8rem; }
+  .ods-text { font-size: .86rem; color: var(--gris-texto); line-height: 1.75; }
+  .ods-reflexion {
+    background: rgba(29,185,84,0.05);
+    border-left: 3px solid var(--verde);
+    padding: 1rem 1.2rem; margin-top: 1rem; border-radius: 0 2px 2px 0;
+  }
+  .ods-reflexion p { font-size: .83rem; color: rgba(245,245,240,0.75); line-height: 1.7; font-style: italic; }
 
-  .objetivos-especificos { margin-top: 2rem; }
-  .obj-esp-title {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--verde);
-    letter-spacing: .15em; text-transform: uppercase;
-    margin-bottom: 1.2rem;
+  /* DIVIDER */
+  .divider {
+    display: flex; align-items: center; gap: 1.5rem; padding: 0 3rem; margin: 1rem 0;
   }
-  .obj-list { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
-  .obj-list li {
-    display: flex; align-items: flex-start; gap: 1.2rem;
-    background: var(--gris-medio);
-    border-left: 3px solid rgba(29,185,84,0.4);
-    padding: 1.1rem 1.4rem;
-    font-size: .92rem; line-height: 1.65;
-  }
-  .obj-list li .obj-n {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem; color: var(--verde);
-    min-width: 24px; margin-top: .15rem;
-    font-weight: 700;
-  }
-
-  /* JUSTIFICACIÓN */
-  .justificacion { margin: 3.5rem 0; }
-  .just-cols {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem; margin-top: 1.5rem;
-  }
-  .just-card {
-    background: var(--gris-medio);
-    border-top: 3px solid var(--verde);
-    padding: 1.8rem 1.5rem;
-  }
-  .just-card h4 {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; color: var(--verde);
-    letter-spacing: .12em; text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .just-card p { font-size: .85rem; color: var(--gris-texto); line-height: 1.7; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(29,185,84,0.4), transparent); }
+  .divider-text { font-family: 'Space Mono', monospace; font-size: .65rem; color: var(--verde); letter-spacing: .2em; text-transform: uppercase; }
 
   /* REFERENCIAS */
-  .referencias {
-    background: var(--gris-oscuro);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 2px; padding: 2.5rem;
-    margin-top: 3.5rem;
-  }
-  .referencias h3 {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem; color: var(--verde);
-    letter-spacing: .15em; text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-  .ref-item {
-    font-size: .83rem; color: var(--gris-texto);
-    line-height: 1.7; margin-bottom: .9rem;
-    padding-left: 1.5rem; text-indent: -1.5rem;
-  }
+  .referencias-section { background: var(--gris-oscuro); border-top: 1px solid rgba(29,185,84,0.15); }
+  .referencias-wrap { max-width: 860px; margin: 0 auto; }
+  .referencias-wrap h3 { font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--verde); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1.8rem; }
+  .ref-item { font-size: .83rem; color: var(--gris-texto); line-height: 1.7; margin-bottom: .9rem; padding-left: 1.5rem; text-indent: -1.5rem; }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
-    background: var(--gris-oscuro);
-    border-top: 1px solid rgba(29,185,84,0.2);
-    padding: 3rem;
-    display: flex; justify-content: space-between;
-    align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    background: var(--gris-oscuro); border-top: 1px solid rgba(29,185,84,0.2);
+    padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
   }
-  .footer-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 700;
-  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
   .footer-brand span { color: var(--verde); }
-  .footer-info {
-    font-family: 'Space Mono', monospace;
-    font-size: .68rem; color: var(--gris-texto);
-    line-height: 1.8; text-align: right;
-  }
+  .footer-info { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--gris-texto); line-height: 1.8; text-align: right; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
+  /* FADE */
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp .6s ease forwards; }
+  .fade-in:nth-child(2){ animation-delay:.12s; }
+  .fade-in:nth-child(3){ animation-delay:.24s; }
+  .fade-in:nth-child(4){ animation-delay:.36s; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 3rem; }
-    .entry1-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .territory-card { grid-template-columns: 1fr; }
-    .just-cols { grid-template-columns: 1fr; }
-    .dimensions { grid-template-columns: 1fr; }
-    .stat-bar { padding: 1.5rem; }
-    .hero-meta { gap: 1.5rem; }
+    .taller-grid, .taller-grid.reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ods-grid { grid-template-columns: 1fr; }
+    .indicadores { grid-template-columns: 1fr 1fr; }
+    .stat-strip { padding: 1.5rem; }
     .divider { padding: 0 1.5rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .footer-info { text-align: center; }
+    .scroll-line { display: none; }
   }
-
-  /* FADE IN */
-  .fade-in {
-    opacity: 0; transform: translateY(24px);
-    animation: fadeUp .7s ease forwards;
-  }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-in:nth-child(2) { animation-delay: .15s; }
-  .fade-in:nth-child(3) { animation-delay: .3s; }
-  .fade-in:nth-child(4) { animation-delay: .45s; }
 </style>
 </head>
 <body>
@@ -429,464 +293,480 @@
 <nav>
   <div class="nav-logo">Conectados // Blog UNIMINUTO</div>
   <ul class="nav-links">
-    <li><a href="#entrada1">Entrada I</a></li>
-    <li><a href="#entrada2">Entrada II</a></li>
+    <li><a href="#taller1">Taller I</a></li>
+    <li><a href="#taller2">Taller II</a></li>
+    <li><a href="#ods">ODS</a></li>
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Proyecto Social de Formación · UNIMINUTO · 2025</div>
+  <div class="entry-badge">Entrada · 03 — Tercera Parte</div>
   <h1 class="fade-in">
-    Conectados:<br>
-    <span class="highlight">Cerrando la<br>Brecha Digital</span>
+    Aprender <em>Haciendo:</em><br>
+    De la Teoría a la Pantalla
   </h1>
   <p class="hero-sub fade-in">
-    Un proyecto de responsabilidad social universitaria orientado a disminuir las brechas 
-    de acceso y uso de tecnologías digitales en la comunidad de la Junta de Acción Comunal 
-    de la Biblioteca Pública Gabriel García Márquez - El Tunal, Bogotá D.C.
+    Relato y reflexión de los dos primeros talleres de alfabetización digital con los usuarios 
+    de la Biblioteca Pública Gabriel García Márquez – El Tunal, en el marco del Proyecto Social 
+    de Formación de Disminución de la Brecha Digital.
   </p>
   <div class="hero-meta fade-in">
     <div class="meta-item">
-      <span class="meta-label">Estudiante</span>
-      <span class="meta-value">Jonatan Albenio Medina Sandoval</span>
+      <span class="meta-label">Entrada</span>
+      <span class="meta-value">Tercera parte del blog</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">ID</span>
-      <span class="meta-value">1026304262</span>
+      <span class="meta-label">Semanas</span>
+      <span class="meta-value">Semana 3 y Semana 4</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Territorio</span>
-      <span class="meta-value">Biblioteca El Tunal · Tunjuelito · Bogotá</span>
+      <span class="meta-label">Actividades</span>
+      <span class="meta-value">Taller 1 y Taller 2</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Modalidad</span>
-      <span class="meta-value">Virtual / Híbrida</span>
+      <span class="meta-label">Participantes</span>
+      <span class="meta-value">20 usuarios · Tunjuelito</span>
     </div>
   </div>
   <div class="scroll-line">Desplazar</div>
 </div>
 
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-item">
-    <div class="stat-num">0,400</div>
-    <div class="stat-desc">Índice de Brecha Digital Colombia 2022 · MinTIC IBD</div>
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-item">
+    <div class="stat-n">20</div>
+    <div class="stat-d">Participantes por taller<br>adultos mayores y madres cabeza de hogar</div>
   </div>
-  <div class="stat-item">
-    <div class="stat-num">0,254</div>
-    <div class="stat-desc">IBD de Bogotá D.C. — menor brecha del país · puesto #1</div>
+  <div class="stat-strip-item">
+    <div class="stat-n">4h</div>
+    <div class="stat-d">Total de formación<br>2 talleres · 2 horas c/u</div>
   </div>
-  <div class="stat-item">
-    <div class="stat-num">34,9%</div>
-    <div class="stat-desc">de la brecha nacional explicada por falta de habilidades digitales</div>
+  <div class="stat-strip-item">
+    <div class="stat-n">2</div>
+    <div class="stat-d">Guías PDF descargables<br>entregadas a la comunidad</div>
   </div>
-  <div class="stat-item">
-    <div class="stat-num">12,7M</div>
-    <div class="stat-desc">colombianos sin internet en 2024 · We Are Social</div>
+  <div class="stat-strip-item">
+    <div class="stat-n">ODS 4<br style="font-size:.8rem">+10</div>
+    <div class="stat-d">Objetivos de Desarrollo Sostenible<br>aportados por las actividades</div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     ENTRADA I
-══════════════════════════════════ -->
-<section id="entrada1">
-  <div class="section-header">
-    <div class="entry-num">Entrada · 01</div>
-    <h2 class="section-title">La Brecha Digital:<br><span>Una Fractura Invisible</span></h2>
-  </div>
+<!-- ══════════════════ TALLER 1 ══════════════════ -->
+<section id="taller1">
+  <div class="section-label">Semana 3 · Abril 2026</div>
+  <h2 class="section-title">Taller 1: <span>El celular como puerta al mundo</span></h2>
 
-  <div class="entry1-grid">
+  <div class="taller-grid">
+    <!-- Columna izquierda: narrativa -->
     <div>
       <div class="prose">
         <p>
-          Vivimos en una era en la que conectarse a internet se ha convertido en una necesidad 
-          tan básica como el acceso al agua potable o a la energía eléctrica. Sin embargo, esta 
-          realidad no es homogénea: millones de personas en Colombia y en el mundo permanecen 
-          al margen del ecosistema digital, no por elección, sino por condiciones estructurales 
-          que los excluyen sistemáticamente. A esta desigualdad se le conoce como <strong>brecha 
-          digital</strong>, y su impacto es profundo, multidimensional y urgente de atender.
+          El primer taller comenzó con una pregunta sencilla lanzada en el chat del Google Meet: 
+          <strong>"¿Para qué usan su celular hoy?"</strong> Las respuestas fueron reveladoras: 
+          "llamar a mis hijos", "ver videos de cocina", "mandar mensajes por WhatsApp". Nadie 
+          mencionó trámites, noticias verificadas, ni herramientas de aprendizaje. Era exactamente 
+          el punto de partida que necesitábamos.
         </p>
         <p>
-          Según Iberdrola (2021), la brecha digital es <em>"la desigualdad en el acceso a 
-          internet y las TIC"</em>, y aunque en un primer momento se percibió como algo pasajero 
-          que desaparecería con la masificación de la tecnología, la fractura persiste hoy a 
-          pesar de la comercialización global de dispositivos. Sus causas van desde el alto 
-          precio de los equipos, hasta la falta de formación digital o el déficit de 
-          infraestructuras en regiones menos desarrolladas. Iberdrola identifica tres tipos 
-          principales: <strong>brecha de acceso</strong> (posibilidad de llegar a la tecnología), 
-          <strong>brecha de uso</strong> (competencias para utilizarla) y <strong>brecha de 
-          calidad de uso</strong> (capacidad de aprovechar su potencial de forma significativa).
+          El objetivo de esta primera sesión fue construir sobre lo que los participantes ya sabían 
+          hacer y ampliar ese horizonte de manera gradual. Antes de hablar de "navegar en internet", 
+          reconocimos juntos la pantalla de inicio de un celular Android, los íconos comunes y las 
+          diferencias entre el WiFi y los datos móviles. Para muchos adultos mayores, esto fue una 
+          revelación: <strong>llevaban años usando el celular sin entender qué pasaba "adentro"</strong>.
         </p>
         <p>
-          En Colombia, el panorama es revelador. El Ministerio TIC (MinTIC, 2023) publicó el 
-          <strong>Índice de Brecha Digital (IBD)</strong> con resultados del año 2022, donde 
-          Colombia obtuvo un índice de <strong>0,400</strong> (en una escala de 0 a 1, donde 
-          valores cercanos a cero representan menor brecha). Este índice mide cuatro dimensiones: 
-          habilidades digitales (34,9% de la brecha), acceso material (31,2%), aprovechamiento 
-          (30,2%) y motivación (3,6%). Bogotá D.C. es el territorio con menor brecha del país 
-          con un IBD de 0,254, mientras que Vichada alcanza 0,689, evidenciando una disparidad 
-          territorial severa.
+          La demostración de búsqueda en Google generó el momento más emotivo del taller. Una señora 
+          de 68 años, madre de cuatro hijos, escribió por primera vez en el buscador el nombre de 
+          su barrio. Cuando vio las fotos del Parque El Tunal aparecer en la pantalla, sonrió y dijo: 
+          <em>"Entonces sí se puede."</em> Esa frase resume el espíritu del proyecto.
         </p>
       </div>
 
       <div class="pull-quote">
-        "El acceso a internet es el acceso al conocimiento, a informarse, a formarse y en esta 
-        administración estamos haciendo realidad esa promesa de hace años."
-        <br><small style="font-size:.8rem; color:var(--verde); font-style:normal;">— Alcalde Carlos Fernando Galán, Bogotá, 2025</small>
+        "Llevaba años con el celular sin saber que podía buscar mis propias noticias.
+        Pensaba que eso era solo para los jóvenes."
+        <br><small style="font-size:.78rem; color:var(--verde); font-style:normal;">— Participante adulta mayor · Taller 1</small>
       </div>
 
       <div class="prose">
         <p>
-          La pandemia de COVID-19 actuó como un acelerador brutal de estas fracturas. El 
-          confinamiento obligatorio evidenció que quienes no contaban con acceso a internet 
-          ni dispositivos no podían estudiar, trabajar o acceder a servicios de salud en línea 
-          (Guerrero, 2024). Las comunidades de bajos recursos, especialmente en sectores 
-          urbanos periféricos como los barrios populares del sur de Bogotá, enfrentaron 
-          una exclusión digital que se sumó a otras formas de exclusión social previamente 
-          existentes.
+          El módulo de seguridad digital fue el más intenso. Mostrar capturas de pantalla de mensajes 
+          fraudulentos reales —"ganaste un premio", "actualiza tu cuenta bancaria"— generó reacciones 
+          de reconocimiento entre varios participantes que habían recibido mensajes similares. El 
+          <strong>enfoque preventivo y práctico</strong>, basado en casos reales, resultó mucho más 
+          efectivo que cualquier explicación teórica.
         </p>
         <p>
-          Desde la perspectiva de la responsabilidad social universitaria, UNIMINUTO reconoce 
-          que las instituciones de educación superior tienen un papel activo en la transformación 
-          de estas realidades. La teoría del cambio del Proyecto Social de Formación propone 
-          co-construir soluciones con las comunidades, valorando la participación activa y el 
-          enfoque inclusivo como motores del desarrollo sostenible. En este sentido, abordar la 
-          brecha digital no es solo un ejercicio académico: es un acto de justicia social.
+          Desde la perspectiva del <strong>desarrollo integral sostenible</strong>, este taller materializó 
+          lo que Jiménez Herrero (2018) denomina el principio de equidad intrageneracional: garantizar que 
+          las personas, independientemente de su edad o condición socioeconómica, puedan acceder a las 
+          mismas oportunidades que ofrecen las tecnologías actuales. Arenas de Mesa y Cecchini (2022) 
+          complementan esta visión al vincular la protección social con el acceso al conocimiento como 
+          derecho fundamental en un modelo de desarrollo inclusivo.
         </p>
       </div>
     </div>
 
+    <!-- Columna derecha: detalles estructurados -->
     <div>
-      <div class="info-card">
-        <h4>📊 Contexto global — Iberdrola & UIT</h4>
-        <p>
-          Según la Unión Internacional de Telecomunicaciones (UIT), en 2023 el 33% de la 
-          población mundial (2.600 millones de personas) permanecía desconectada de internet. 
-          Iberdrola (2021) destaca que la brecha digital afecta más a las mujeres que a los 
-          hombres a nivel global (52% vs. 42%), y que la ONU la reconoce en su ODS 9 como un 
-          obstáculo al desarrollo sostenible. En los países de bajos ingresos solo el 27% de 
-          la población usa internet, frente al 93% en países de altos ingresos: una brecha 
-          de <strong>66 puntos porcentuales</strong>.
+      <div class="detail-card">
+        <h4>📋 Ficha del taller</h4>
+        <ul>
+          <li>Duración: 2 horas continuas (9:00 a.m. – 11:00 a.m.)</li>
+          <li>Participantes: 20 usuarios registrados en la Biblioteca El Tunal</li>
+          <li>Perfil: Adultos mayores y madres cabeza de hogar, estratos 1-2, localidad Tunjuelito</li>
+          <li>Herramientas usadas: Google Meet, YouTube (tutoriales), Google Buscador</li>
+          <li>Entregable: Guía PDF descargable "Mi primer mapa del celular"</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h4>🎯 Contenidos trabajados</h4>
+        <ul>
+          <li>Anatomía del celular: pantalla de inicio, íconos y configuración básica</li>
+          <li>Diferencia entre WiFi y datos móviles · cómo saber si estás conectado</li>
+          <li>Navegación básica: abrir el navegador, escribir una dirección web, usar el buscador</li>
+          <li>Identificar fuentes confiables: diferencias entre portales oficiales y sitios dudosos</li>
+          <li>Reconocimiento de mensajes fraudulentos y estafas comunes en Colombia</li>
+          <li>Práctica guiada: cada participante buscó información de su interés en tiempo real</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h4>📊 Metodología</h4>
+        <p style="margin-bottom:.8rem;">
+          El taller siguió un modelo de <strong>aprendizaje experiencial</strong>: primero 
+          observación (el facilitador demostró en pantalla compartida), luego práctica guiada 
+          (los participantes replicaron desde sus dispositivos), y finalmente reflexión grupal 
+          sobre lo aprendido. El ritmo fue ajustado en tiempo real según las preguntas del grupo.
         </p>
       </div>
 
-      <div class="info-card">
-        <h4>🇨🇴 Colombia — Índice de Brecha Digital IBD 2022</h4>
-        <p>
-          El MinTIC (2023) reporta que el IBD nacional fue de 0,400 en 2022, con una 
-          disminución del 9% desde 2018. La dimensión más crítica son las 
-          <strong>habilidades digitales</strong> con un índice de 0,538, explicando el 
-          34,9% de toda la brecha. Bogotá lidera con el menor IBD (0,254), pero al 
-          interior de la ciudad persisten desigualdades entre localidades de estratos 
-          bajos como Rafael Uribe Uribe y zonas de mayor desarrollo socioeconómico.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h4>🏙️ Bogotá y la localidad Rafael Uribe Uribe</h4>
-        <p>
-          Aunque Bogotá es el territorio con menor brecha digital del país, la Alcaldía 
-          Mayor reconoce que aproximadamente el <strong>15% de hogares bogotanos</strong> 
-          aún no tiene acceso a internet. La localidad de <strong>Rafael Uribe Uribe</strong>, 
-          donde se ubica la Biblioteca El Tunal, hace parte del sur de Bogotá priorizado por el programa 
-          <em>Conexión Social, Bogotá me conecta</em> que busca conectar 100.000 hogares 
-          de estratos 1 y 2 con fibra óptica gratuita, lo que confirma la necesidad de 
-          intervención en esta comunidad.
-        </p>
-      </div>
-
-      <div class="dimensions">
-        <div class="dim-card">
-          <span class="dim-icon">🧠</span>
-          <div class="dim-title">Habilidades · 34,9%</div>
-          <div class="dim-text">Mayor contribuyente a la brecha en Colombia (IBD 0,538). Competencias para operar, usar y crear contenido digital.</div>
+      <div class="indicadores">
+        <div class="ind-card">
+          <div class="ind-n">20</div>
+          <div class="ind-d">personas capacitadas en navegación básica</div>
         </div>
-        <div class="dim-card">
-          <span class="dim-icon">🔌</span>
-          <div class="dim-title">Acceso · 31,2%</div>
-          <div class="dim-text">Disponibilidad de infraestructura, dispositivos y conexión a internet en el hogar o lugar de trabajo.</div>
+        <div class="ind-card">
+          <div class="ind-n">100%</div>
+          <div class="ind-d">de asistencia al taller programado</div>
         </div>
-        <div class="dim-card">
-          <span class="dim-icon">💼</span>
-          <div class="dim-title">Aprovechamiento · 30,2%</div>
-          <div class="dim-text">Frecuencia y diversidad de usos reales de las TIC: educación, trabajo, trámites, salud, comunicación.</div>
+        <div class="ind-card">
+          <div class="ind-n">1</div>
+          <div class="ind-d">guía PDF entregada como material permanente</div>
         </div>
-        <div class="dim-card">
-          <span class="dim-icon">🌐</span>
-          <div class="dim-title">Motivación · 3,6%</div>
-          <div class="dim-text">Percepciones, barreras psicológicas y utilidad percibida que impulsan o frenan el uso de la tecnología.</div>
+        <div class="ind-card">
+          <div class="ind-n">2h</div>
+          <div class="ind-d">de formación práctica e interactiva</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Párrafo de cierre entrada 1 -->
-  <div style="max-width:860px; margin:3rem auto 0;">
-    <div class="prose">
-      <p>
-        Frente a este panorama, la pregunta que orienta este proyecto es: ¿cómo puede un 
-        estudiante universitario, desde su práctica en responsabilidad social, contribuir a 
-        disminuir la brecha digital en su propia comunidad? La respuesta está en la acción 
-        directa, situada y colaborativa: formando alianzas con líderes comunitarios, diseñando 
-        talleres adaptados a las necesidades reales de las personas y generando procesos de 
-        apropiación tecnológica que perduren más allá de la intervención. Este blog es el 
-        primer paso de ese camino.
-      </p>
+  <!-- Timeline del taller 1 -->
+  <div style="max-width:700px; margin:4rem auto 0;">
+    <p class="section-label">Desarrollo de la sesión</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">01</div>
+        <div class="tl-content">
+          <h4>Bienvenida y encuadre (15 min)</h4>
+          <p>Presentación del facilitador, revisión de asistencia virtual y pregunta rompe-hielo: "¿Para qué usan su celular hoy?". Esto permitió identificar el nivel real del grupo y personalizar el ritmo del taller.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">02</div>
+        <div class="tl-content">
+          <h4>Anatomía del celular y conexión a internet (30 min)</h4>
+          <p>Demostración en pantalla compartida de la pantalla de inicio de Android. Explicación de íconos comunes, diferencia WiFi vs. datos y cómo verificar la conexión activa.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">03</div>
+        <div class="tl-content">
+          <h4>Navegación básica y búsqueda (35 min)</h4>
+          <p>Demostración de apertura del navegador, escritura de una URL y uso del buscador Google. Práctica guiada: cada participante buscó un tema de su interés desde su propio dispositivo.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">04</div>
+        <div class="tl-content">
+          <h4>Seguridad básica en internet (25 min)</h4>
+          <p>Presentación de ejemplos reales de mensajes fraudulentos. Ejercicio grupal de identificación: "¿este mensaje es confiable o es una estafa?". Discusión de señales de alerta.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">05</div>
+        <div class="tl-content">
+          <h4>Cierre y entrega de material (15 min)</h4>
+          <p>Ronda de preguntas y respuestas. Entrega de guía PDF descargable "Mi primer mapa del celular". Compromiso de práctica para la semana y anuncio del próximo taller.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- DIVIDER -->
 <div class="divider">
   <div class="divider-line"></div>
-  <div class="divider-text">Segunda Entrada</div>
+  <div class="divider-text">Segunda actividad</div>
   <div class="divider-line"></div>
 </div>
 
-<!-- ══════════════════════════════════
-     ENTRADA II
-══════════════════════════════════ -->
-<section id="entrada2">
-  <div class="section-header">
-    <div class="entry-num">Entrada · 02</div>
-    <h2 class="section-title">Sin Conexión,<br><span>Sin Oportunidades</span></h2>
-  </div>
+<!-- ══════════════════ TALLER 2 ══════════════════ -->
+<section id="taller2">
+  <div class="section-label">Semana 4 · Mayo 2026</div>
+  <h2 class="section-title">Taller 2: <span>El Estado está en línea. ¿Y tú?</span></h2>
 
-  <div class="entry2-layout">
-    <div style="margin:2rem 0; position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-  <iframe 
-    src="https://www.youtube.com/watch?v=4GbEvAXOuvM" 
-    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
-    allowfullscreen>
-  </iframe>
-</div>
-    <!-- PLANTEAMIENTO -->
-    <div class="prose" style="margin-bottom:2rem;">
-      <p>
-        En la Biblioteca Pública Gabriel García Márquez - El Tunal, ubicada en el Parque El Tunal, localidad de Tunjuelito al sur de Bogotá, 
-        existe una realidad que se repite en miles de hogares de estratos 1 y 2 de la capital: 
-        familias que tienen un teléfono celular, pero que no saben usarlo más allá de las redes 
-        sociales; adultos que no pueden acceder a trámites en línea porque nunca los han 
-        aprendido; jóvenes que estudian desde el celular porque no tienen computador; y líderes 
-        comunitarios que no pueden difundir información de la Junta de Acción Comunal porque 
-        no dominan herramientas digitales básicas. Esta es la <strong>brecha digital en acción</strong>.
-      </p>
-      <p>
-        La problemática identificada para este Proyecto Social de Formación es la 
-        <strong>baja alfabetización digital y el limitado aprovechamiento de las tecnologías 
-        de la información y la comunicación (TIC)</strong> por parte de los miembros de la 
-        comunidad usuaria de la Biblioteca El Tunal. Esta situación genera 
-        exclusión en el acceso a servicios públicos digitales, oportunidades laborales, 
-        procesos educativos y participación ciudadana en entornos virtuales.
-      </p>
-    </div>
-
-    <!-- CONTEXTUALIZACIÓN DEL TERRITORIO -->
-    <div class="territory-card">
-      <div class="territory-map">
-        <div class="map-pin">📍</div>
-        <div class="map-text">
-          Biblioteca Gabriel García Márquez - El Tunal<br>
-          Localidad Tunjuelito<br>
-          Bogotá D.C., Colombia
-        </div>
-        <div class="map-coords">Calle 48B Sur No. 21-13 · Parque El Tunal · Tunjuelito</div>
-        <div style="margin-top:1rem; font-size:.72rem; color:var(--verde); font-family:'Space Mono',monospace; text-align:center;">
-          ↗ Ver en Google Maps:<br>
-          <a href="https://maps.google.com/?q=Biblioteca+El+Tunal+Gabriel+Garcia+Marquez+Bogota" 
-             target="_blank" 
-             style="color:var(--acento); text-decoration:none;">
-            maps.google.com
-          </a>
-        </div>
-      </div>
-      <div class="territory-info">
-        <h3>Contextualización del territorio</h3>
-        <p>
-          La <strong>Biblioteca Pública Gabriel García Márquez - El Tunal</strong> es una de 
-          las tres grandes bibliotecas distritales de Bogotá, perteneciente a BibloRed (Red 
-          Distrital de Bibliotecas Públicas). Abrió sus puertas en 2001 y atiende alrededor 
-          de <strong>2.900 usuarios diarios</strong>, sirviendo a cerca de dos millones de 
-          habitantes del sur de la ciudad: Tunjuelito, Rafael Uribe, Ciudad Bolívar, 
-          San Cristóbal, Antonio Nariño y Usme.
-        </p>
-        <p>
-          La biblioteca cuenta con salas de internet, aulas múltiples, el <em>Centro Aprende</em> 
-          de alfabetización y una Sala LabCo de fabricación digital. Su ubicación en el corazón 
-          del Parque El Tunal la convierte en un referente comunitario de sectores de estratos 
-          1, 2 y 3, donde la brecha digital se manifiesta en usuarios que no saben aprovechar 
-          los recursos tecnológicos disponibles para educación, trabajo y trámites.
-        </p>
-        <p>
-          La localidad de Tunjuelito está entre las priorizadas por la Alcaldía de Bogotá 
-          en el programa <em>Conexión Social</em>, reconociendo su condición de vulnerabilidad 
-          digital en el sur de la ciudad.
-        </p>
-        <div class="tag-list">
-          <span class="tag">Estrato 1-2</span>
-          <span class="tag">Tunjuelito</span>
-          <span class="tag">BibloRed</span>
-          <span class="tag">Sur de Bogotá</span>
-          <span class="tag">Zona priorizada</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- OBJETIVOS -->
-    <div class="objetivos-section">
-      <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:1.5rem;">
-        Objetivos del Proyecto
-      </h3>
-
-      <div class="objetivo-general">
-        <div class="obj-label">🎯 Objetivo General</div>
-        <div class="obj-text">
-          Fortalecer las competencias digitales básicas de los usuarios de la Biblioteca 
-          Pública Gabriel García Márquez - El Tunal (localidad Tunjuelito, Bogotá), mediante 
-          el diseño e implementación de talleres virtuales de alfabetización digital, 
-          contribuyendo a la reducción de la brecha digital y a la mejora de su participación 
-          ciudadana, acceso a servicios en línea y aprovechamiento de oportunidades laborales 
-          y educativas.
-        </div>
-      </div>
-
-      <div class="objetivos-especificos">
-        <div class="obj-esp-title">📌 Objetivos Específicos</div>
-        <ul class="obj-list">
-          <li>
-            <span class="obj-n">OE1</span>
-            Diagnosticar el nivel de acceso, uso y apropiación de las tecnologías digitales 
-            por parte de los usuarios de la Biblioteca El Tunal, mediante la aplicación de un 
-            formulario virtual de caracterización durante las primeras semanas del proyecto.
-          </li>
-          <li>
-            <span class="obj-n">OE2</span>
-            Diseñar e implementar una secuencia de talleres virtuales adaptados al nivel y las 
-            necesidades identificadas en la comunidad, abordando temas como uso del celular para 
-            trámites, herramientas ofimáticas básicas, seguridad digital y comunicación 
-            comunitaria en redes sociales.
-          </li>
-          <li>
-            <span class="obj-n">OE3</span>
-            Evaluar el impacto de los talleres en el fortalecimiento de habilidades digitales 
-            de los participantes, mediante instrumentos de seguimiento y una encuesta final de 
-            satisfacción y aprendizaje, con el fin de medir el alcance y la sostenibilidad 
-            de la intervención.
-          </li>
-          <li>
-            <span class="obj-n">OE4</span>
-            Generar un material de referencia digital (guía descargable) que quede en manos 
-            de la comunidad y sirva de recurso permanente para continuar el proceso de 
-            alfabetización digital de forma autónoma una vez concluido el proyecto.
-          </li>
+  <div class="taller-grid reverse">
+    <!-- Columna izquierda: detalles estructurados -->
+    <div>
+      <div class="detail-card">
+        <h4>📋 Ficha del taller</h4>
+        <ul>
+          <li>Duración: 2 horas (9:00 a.m. – 11:00 a.m.)</li>
+          <li>Participantes: 20 usuarios · misma cohorte del Taller 1</li>
+          <li>Plataformas demostradas: bogota.gov.co, SISBEN en línea, EPS y red hospitalaria, portal SENA</li>
+          <li>Entregable: Guía PDF "Mis trámites en línea: paso a paso"</li>
+          <li>Recurso adicional: Grabación de la sesión compartida por WhatsApp para repaso</li>
         </ul>
       </div>
+
+      <div class="detail-card">
+        <h4>🎯 Trámites trabajados en sesión</h4>
+        <ul>
+          <li>Portal del Distrito de Bogotá (bogota.gov.co): buscar información de servicios locales</li>
+          <li>Consulta del puntaje SISBEN en línea en el portal oficial del DNP</li>
+          <li>Agendamiento de citas médicas en portales de EPS y hospitales de la red pública</li>
+          <li>Inscripción a cursos gratuitos del SENA a través del portal SOFÍA Plus</li>
+          <li>Solicitud de subsidios y trámites de la Secretaría de Integración Social</li>
+        </ul>
+      </div>
+
+      <div class="indicadores">
+        <div class="ind-card">
+          <div class="ind-n">20</div>
+          <div class="ind-d">personas capacitadas en trámites digitales</div>
+        </div>
+        <div class="ind-card">
+          <div class="ind-n">5</div>
+          <div class="ind-d">plataformas del Estado demostradas</div>
+        </div>
+        <div class="ind-card">
+          <div class="ind-n">1</div>
+          <div class="ind-d">guía PDF de trámites entregada</div>
+        </div>
+        <div class="ind-card">
+          <div class="ind-n">100%</div>
+          <div class="ind-d">de asistencia al segundo taller</div>
+        </div>
+      </div>
     </div>
 
-    <!-- JUSTIFICACIÓN -->
-    <div class="justificacion">
-      <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:.5rem;">
-        Justificación
-      </h3>
-      <div class="prose" style="margin-bottom:1.5rem;">
+    <!-- Columna derecha: narrativa -->
+    <div>
+      <div class="prose">
         <p>
-          La relevancia de este proyecto se sustenta en argumentos de carácter académico, 
-          científico y social que evidencian la urgencia de intervenir en la problemática 
-          de la brecha digital a nivel comunitario.
+          Para el segundo taller, los participantes llegaron con algo que no tenían al inicio del 
+          proyecto: <strong>confianza</strong>. Varios compartieron en el chat de bienvenida que 
+          habían practicado durante la semana y que ya habían buscado noticias o información del 
+          barrio por su cuenta. Era el indicador más valioso del proceso.
+        </p>
+        <p>
+          Este taller abordó uno de los dolores más concretos de la comunidad: la imposibilidad 
+          de realizar trámites del Estado en línea. En Colombia, servicios tan básicos como agendar 
+          una cita médica, consultar el puntaje del SISBEN o inscribirse a un curso del SENA se 
+          hacen por internet. Para quienes no dominan estas herramientas, <strong>esto representa 
+          una exclusión real de derechos ciudadanos</strong>.
+        </p>
+        <p>
+          La demostración paso a paso del portal del SISBEN generó el mayor impacto emocional del 
+          taller. Una madre cabeza de hogar de 45 años descubrió, en tiempo real durante la sesión, 
+          que su puntaje estaba desactualizado y que podía iniciar el proceso de actualización 
+          directamente desde el portal. <em>"Nunca supe que podía hacer esto desde el celular"</em>, 
+          expresó. Ese momento encapsuló la esencia de lo que buscamos con el proyecto.
         </p>
       </div>
 
-      <div class="just-cols">
-        <div class="just-card">
-          <h4>📚 Justificación Académica</h4>
-          <p>
-            Desde la perspectiva universitaria, este proyecto responde a los principios de 
-            la responsabilidad social de UNIMINUTO, que plantea la co-construcción de 
-            soluciones con las comunidades como eje del Proyecto Social de Formación. 
-            La alfabetización digital es reconocida por la UNESCO como una competencia 
-            del siglo XXI fundamental para el ejercicio pleno de la ciudadanía. Intervenir 
-            en ella desde la academia aporta conocimiento situado y aplicado a realidades concretas.
-          </p>
-        </div>
-        <div class="just-card">
-          <h4>🔬 Justificación Científica</h4>
-          <p>
-            Investigaciones como la de Guerrero (2024) sobre el impacto del COVID-19 en 
-            las brechas digitales de Colombia demuestran que la falta de habilidades TIC 
-            genera exclusión educativa, laboral y social. El DNP (2024) identifica tres 
-            dimensiones de la pobreza digital (conectividad, dispositivos y habilidades) 
-            y señala la necesidad de intervenciones multidimensionales. Este proyecto aborda 
-            la tercera dimensión, la más desatendida: las competencias para usar la tecnología.
-          </p>
-        </div>
-        <div class="just-card">
-          <h4>🤝 Justificación Social</h4>
-          <p>
-            La comunidad usuaria de la Biblioteca El Tunal proviene mayoritariamente de 
-            sectores de estratos 1 y 2 del sur de Bogotá. La biblioteca atiende cerca de 
-            2.900 visitantes diarios y ya cuenta con salas de internet y el Centro Aprende 
-            de alfabetización, lo que hace viable la intervención virtual. Fortalecer las 
-            competencias digitales de sus usuarios tiene un efecto multiplicador: cada 
-            persona formada puede replicar los conocimientos en su hogar y comunidad, 
-            conectando a más personas con oportunidades educativas, laborales y de salud 
-            disponibles en línea.
-          </p>
-        </div>
+      <div class="pull-quote">
+        "Ahora puedo agendar la cita del médico yo sola, sin pedirle el favor a mi hija. 
+        Eso para mí vale mucho."
+        <br><small style="font-size:.78rem; color:var(--verde); font-style:normal;">— Participante · 58 años · Taller 2</small>
       </div>
 
-      <div class="prose" style="margin-top:2rem;">
+      <div class="prose">
         <p>
-          En síntesis, este proyecto no solo busca enseñar a usar el celular o una 
-          computadora. Busca entregar a los usuarios de la Biblioteca El Tunal una 
-          herramienta de poder: la capacidad de participar activamente en la sociedad 
-          digital, de acceder a derechos que hoy les son negados por la exclusión 
-          tecnológica, y de construir, desde sus propias manos, un puente hacia mejores 
-          oportunidades. Como lo plantea Pacheco Duarte et al. (2022), la innovación 
-          social parte de entender profundamente las necesidades de las comunidades y 
-          co-diseñar con ellas soluciones pertinentes y sostenibles. Eso es exactamente 
-          lo que este proyecto propone.
+          La metodología utilizó el concepto de <strong>andamiaje digital</strong>: el facilitador 
+          ejecutó cada paso en pantalla compartida y los participantes replicaron desde sus 
+          dispositivos en tiempo real. Las dudas se resolvieron sobre la marcha, con un ritmo 
+          adaptado al grupo. Al finalizar, cada persona tenía en su celular marcadas las 
+          páginas web más importantes de los trámites trabajados.
+        </p>
+        <p>
+          Desde la perspectiva del <strong>desarrollo integral sostenible</strong>, este taller 
+          es la concreción práctica de lo que Arenas de Mesa y Cecchini (2022) proponen como 
+          "igualdad de oportunidades a través de la protección social activa": garantizar que 
+          todos los ciudadanos, sin importar su nivel educativo o condición socioeconómica, 
+          puedan acceder a los servicios del Estado que costean con sus impuestos. No es 
+          caridad; es justicia.
         </p>
       </div>
     </div>
+  </div>
 
-    <!-- REFERENCIAS -->
-    <div class="referencias" id="referencias">
-      <h3>Referencias</h3>
-      <p class="ref-item">
-        Departamento Nacional de Planeación [DNP]. (2024). <em>Pobreza digital: una nueva perspectiva para fortalecer la inclusión social en Colombia.</em> Dirección de Desarrollo Digital. https://www.dnp.gov.co
-      </p>
-      <p class="ref-item">
-        Guerrero, A. A. (2024). <em>Brechas digitales en zonas rurales y urbanas de Colombia.</em> Corporación Universitaria TEINCO. https://investigacion.teinco.edu.co
-      </p>
-      <p class="ref-item">
-        Iberdrola. (2021). <em>La brecha digital en el mundo y por qué provoca desigualdad.</em> https://www.iberdrola.com/compromiso-social/que-es-brecha-digital
-      </p>
-      <p class="ref-item">
-        Ministerio de Tecnologías de la Información y las Comunicaciones [MinTIC]. (2023). <em>Índice de Brecha Digital: Resultados 2022.</em> Colombia TIC. https://colombiatic.mintic.gov.co/679/articles-333029_presentacion.pdf
-      </p>
-      <p class="ref-item">
-        Newrona. (2024, mayo 8). <em>Tendencias digitales: Informe We Are Social 2024.</em> https://newrona.net/tendencias-digitales-informe-we-are-social-2024/
-      </p>
-      <p class="ref-item">
-        Pacheco Duarte, J. F. et al. (2022). <em>Ruta de Innovación Social: Paso a paso para desarrollar innovaciones sociales</em> (Documento Técnico 02). Corporación Universitaria Minuto de Dios.
-      </p>
-      <p class="ref-item">
-        Reyna Cruz, W. E., Carreón Corona, A. L., & Armijo Mena, S. G. (2019). La interrelación de diferentes disciplinas para el abordaje científico de fenómenos y problemas sociales. <em>Revista Latinoamericana de Metodología de las Ciencias Sociales, 9</em>(2). https://doi.org/10.24215/18537863e048
-      </p>
-      <p class="ref-item">
-        Secretaría Distrital de Integración Social. (2026). <em>Bogotá avanza en el cierre de la brecha digital: más de 32.000 hogares ya tienen internet gratuito gracias a Conexión Social.</em> Alcaldía Mayor de Bogotá. https://www.integracionsocial.gov.co
-      </p>
-      <p class="ref-item">
-        TeleSemana. (2024, diciembre 10). <em>Colombia avanza en su plan de cerrar la brecha digital y suma 3 millones de nuevos conectados.</em> https://www.telesemana.com
-      </p>
-      <p class="ref-item">
-        United Nations. (1948). <em>Universal declaration of human rights.</em> https://www.un.org/en/about-us/universal-declaration-of-human-rights
+  <!-- Timeline taller 2 -->
+  <div style="max-width:700px; margin:4rem auto 0;">
+    <p class="section-label">Desarrollo de la sesión</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">01</div>
+        <div class="tl-content">
+          <h4>Retroalimentación semana anterior (15 min)</h4>
+          <p>Espacio para que los participantes compartieran sus experiencias de práctica de la semana. Varios reportaron haber buscado información de forma autónoma por primera vez. Esto permitió reforzar la confianza del grupo antes de entrar a los nuevos contenidos.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">02</div>
+        <div class="tl-content">
+          <h4>Portal del Distrito y servicios locales (25 min)</h4>
+          <p>Demostración de navegación por bogota.gov.co: cómo encontrar servicios de salud, asistencia social, programas de la Alcaldía y contactos de la localidad de Tunjuelito. Los participantes exploraron el portal desde sus dispositivos.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">03</div>
+        <div class="tl-content">
+          <h4>Consulta del SISBEN y actualización de datos (20 min)</h4>
+          <p>Paso a paso en el portal del DNP para consultar el puntaje SISBEN. Se explicó cómo solicitar una actualización y cuáles son los documentos necesarios. Varios participantes verificaron su puntaje en tiempo real durante la sesión.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">04</div>
+        <div class="tl-content">
+          <h4>Agendamiento de citas médicas (25 min)</h4>
+          <p>Demostración del proceso en los portales de las EPS más comunes (Compensar, Sanitas, Nueva EPS) y en el sistema de hospitales públicos de Bogotá. Los participantes aprendieron a distinguir los pasos de verificación de identidad y selección de especialidad.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">05</div>
+        <div class="tl-content">
+          <h4>Portal SENA y entrega de materiales (15 min)</h4>
+          <p>Breve demostración del portal SOFÍA Plus del SENA para inscripción a cursos gratuitos. Entrega de guía PDF descargable. Compartir grabación de la sesión por WhatsApp. Compromisos para la próxima semana: intentar un trámite real antes del taller 3.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ODS ══════════════════ -->
+<section id="ods" style="background: var(--gris-oscuro); border-top: 1px solid rgba(29,185,84,0.15);">
+  <div class="ods-section">
+    <div class="section-label">Reflexión transversal</div>
+    <h2 class="section-title">Aporte a los <span>Objetivos de Desarrollo Sostenible</span></h2>
+    <div class="prose" style="max-width:700px; margin-bottom:3rem;">
+      <p>
+        Cada actividad desarrollada en este proyecto no ocurre en el vacío: se inscribe en el 
+        marco global de la Agenda 2030 de la ONU. La reducción de la brecha digital es una 
+        condición habilitante para lograr varios ODS simultáneamente. A continuación, se 
+        presenta la reflexión sobre el aporte concreto de los talleres 1 y 2.
       </p>
     </div>
+    <div class="ods-grid">
 
-  </div><!-- /entry2-layout -->
+      <div class="ods-card" data-ods="4">
+        <div class="ods-num">ODS 4</div>
+        <div class="ods-title">Educación de calidad</div>
+        <div class="ods-text">
+          La Meta 4.4 de los ODS establece que para 2030 se debe aumentar el número de personas 
+          que posean las competencias técnicas y profesionales necesarias para el trabajo y el 
+          emprendimiento. Los talleres de alfabetización digital contribuyen directamente a esta 
+          meta: forman a adultos y personas mayores en habilidades digitales que hoy son 
+          imprescindibles para el acceso al mercado laboral, la educación continua y la 
+          participación en la economía del conocimiento.
+        </div>
+        <div class="ods-reflexion">
+          <p>El Taller 1 demostró que la educación digital no tiene edad límite: adultos mayores de 60 años aprendieron a navegar en internet y reconocer información confiable. Esto amplía el concepto de "educación de calidad" más allá del sistema escolar formal.</p>
+        </div>
+      </div>
+
+      <div class="ods-card" data-ods="10">
+        <div class="ods-num">ODS 10</div>
+        <div class="ods-title">Reducción de las desigualdades</div>
+        <div class="ods-text">
+          La Meta 10.2 busca potenciar y promover la inclusión social, económica y política de 
+          todos, independientemente de la edad, el sexo, la discapacidad, la raza o la condición 
+          económica. La brecha digital es hoy una de las formas más concretas de desigualdad: 
+          quien no tiene habilidades digitales queda excluido del mercado laboral digital, de los 
+          servicios del Estado en línea y de las oportunidades educativas virtuales. Los talleres 
+          atacan esta desigualdad desde la raíz.
+        </div>
+        <div class="ods-reflexion">
+          <p>El Taller 2 redujo una desigualdad real y mensurable: los participantes que antes no podían agendar su propia cita médica o consultar el SISBEN, ahora tienen esa capacidad. Eso es reducción de desigualdad en su forma más concreta.</p>
+        </div>
+      </div>
+
+      <div class="ods-card" data-ods="9">
+        <div class="ods-num">ODS 9</div>
+        <div class="ods-title">Industria, innovación e infraestructura</div>
+        <div class="ods-text">
+          La Meta 9.c propone aumentar significativamente el acceso a las tecnologías de la 
+          información y las comunicaciones y esforzarse por proporcionar acceso universal y 
+          asequible a internet en los países menos desarrollados. Si bien Colombia no es 
+          considerado un país menos desarrollado, sus zonas periféricas urbanas como Tunjuelito 
+          enfrentan condiciones similares en términos de acceso y apropiación digital. 
+          El proyecto trabaja la segunda brecha: no la de conectividad, sino la de apropiación.
+        </div>
+        <div class="ods-reflexion">
+          <p>Usar la infraestructura ya disponible en la Biblioteca El Tunal (salas de internet, conectividad gratuita) como espacio de formación es un modelo de aprovechamiento sostenible de recursos públicos existentes, sin necesidad de nueva inversión.</p>
+        </div>
+      </div>
+
+      <div class="ods-card" data-ods="16">
+        <div class="ods-num">ODS 16</div>
+        <div class="ods-title">Paz, justicia e instituciones sólidas</div>
+        <div class="ods-text">
+          La Meta 16.6 busca crear instituciones eficaces, responsables y transparentes a todos 
+          los niveles. Cuando los ciudadanos no pueden acceder a los portales del Estado, consultar 
+          sus datos en el SISBEN o agendar servicios de salud en línea, la relación entre el 
+          ciudadano y las instituciones se debilita. El Taller 2 fortaleció esta relación: los 
+          participantes aprendieron a usar directamente las plataformas gubernamentales, 
+          convirtiéndose en ciudadanos digitalmente activos capaces de exigir y acceder a sus derechos.
+        </div>
+        <div class="ods-reflexion">
+          <p>Enseñar a consultar el SISBEN o tramitar servicios del Distrito no es solo alfabetización digital: es formación ciudadana. Es empoderar a personas de estratos 1 y 2 para relacionarse directamente con las instituciones que deben servirles.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCIAS -->
+<section class="referencias-section" id="referencias">
+  <div class="referencias-wrap">
+    <h3>Referencias</h3>
+    <p class="ref-item">
+      Arenas de Mesa, A. &amp; Cecchini, S. (2022). Igualdad y protección social: Claves para un desarrollo inclusivo y sostenible. <em>El Trimestre Económico, 89</em>(353), 277–309.
+    </p>
+    <p class="ref-item">
+      Departamento Nacional de Planeación [DNP]. (2024). <em>Pobreza digital: una nueva perspectiva para fortalecer la inclusión social en Colombia.</em> Dirección de Desarrollo Digital. https://www.dnp.gov.co
+    </p>
+    <p class="ref-item">
+      González Campo, C. H., Ico Brath, D. &amp; Murillo Vargas, G. (2022). Integración de los Objetivos de Desarrollo Sostenible (ODS) para el cumplimiento de la agenda 2030 en las universidades públicas colombianas. <em>Formación Universitaria, 15</em>(2).
+    </p>
+    <p class="ref-item">
+      Jiménez Herrero, L. M. (2018). <em>Desarrollo sostenible: transición hacia la coevolución global</em> (pp. 20–29). Pirámide.
+    </p>
+    <p class="ref-item">
+      Ministerio de Tecnologías de la Información y las Comunicaciones [MinTIC]. (2023). <em>Índice de Brecha Digital: Resultados 2022.</em> Colombia TIC. https://colombiatic.mintic.gov.co/679/articles-333029_presentacion.pdf
+    </p>
+    <p class="ref-item">
+      Organización de las Naciones Unidas [ONU]. (2015). <em>Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible.</em> https://sdgs.un.org/2030agenda
+    </p>
+    <p class="ref-item">
+      Pacheco Duarte, J. F. et al. (2022). <em>Ruta de Innovación Social: Paso a paso para desarrollar innovaciones sociales</em> (Documento Técnico 02). Corporación Universitaria Minuto de Dios.
+    </p>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -896,7 +776,7 @@
   </div>
   <div class="footer-info">
     Jonatan Albenio Medina Sandoval · ID 1026304262<br>
-    Práctica en Responsabilidad Social · UNIMINUTO · 2025<br>
+    Práctica en Responsabilidad Social · UNIMINUTO · 2026<br>
     Biblioteca Pública Gabriel García Márquez · El Tunal · Tunjuelito, Bogotá D.C.
   </div>
 </footer>
